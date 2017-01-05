@@ -6,7 +6,12 @@ var appRoot = __dirname + '/../../'
 
 var fs = require('fs-extra')
 var path = require('path')
-fs.copySync(path.join(appRoot, './../certificates'), path.join(appRoot, './ssl'))
+
+var certPath = path.join(appRoot, './../certificates')
+
+if (fs.existsSync(certPath)) {
+  fs.copySync(certPath, path.join(appRoot, './ssl'))
+}
 
 require("meanio").serve({}, function (app) {
   console.log('Test server startup')
