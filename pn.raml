@@ -1,0 +1,32 @@
+#%RAML 0.8
+
+/:
+  description: Create a broadcast
+  post:
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          message:
+            description: Notification message to be sent
+            type: string
+/devices:
+  description: Create a device
+  post:
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          os:
+            description: ios or android
+            type: string
+          token:
+            description: corresponding device token
+            type: string
+/users/{userId}:
+  description: Send notification to a User
+  post:
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          message:
+            description: Notification message to be sent
+            type: string
